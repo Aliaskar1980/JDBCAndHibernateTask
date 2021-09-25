@@ -16,7 +16,6 @@ public class UserDaoJdbcImpl implements UserDao {
     }
 
     public void createUsersTable() {
-
         String sql = "CREATE TABLE  USERS " +
                 "(id SERIAL PRIMARY KEY, " +
                 " name VARCHAR(255), " +
@@ -33,16 +32,14 @@ public class UserDaoJdbcImpl implements UserDao {
         }
     }
 
-
     public void dropUsersTable() {
         String sql = "DROP TABLE USERS";
         try {
             if (exists) {
                 Statement statement = conn.createStatement();
                 statement.executeUpdate(sql);
-                System.out.println("Удалено таблица Users...");
+                System.out.println("Таблица Users успешно удалено...");
             }
-
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
@@ -57,7 +54,6 @@ public class UserDaoJdbcImpl implements UserDao {
             stm.setInt(3, age);
             stm.executeUpdate();
             System.out.println(name + " " + lastName + " " + age + "Успешно добавлено.");
-
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
@@ -73,7 +69,6 @@ public class UserDaoJdbcImpl implements UserDao {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-
     }
 
     public List<User> getAllUsers() {
@@ -88,28 +83,22 @@ public class UserDaoJdbcImpl implements UserDao {
                 String lastName = resultSet.getString(3);
                 byte age = resultSet.getByte(4);
                 users.add(new User(name, lastName, age));
-
                 System.out.println(id+" "+  name+" "+ lastName+" "+ age );
             }
-
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-
         return users;
     }
 
     public void cleanUsersTable() {
-
         String sql = "TRUNCATE table USERS ";
         try {
             Statement statement = conn.createStatement();
             statement.executeUpdate(sql);
-            System.out.println("Удалено все записи из таблица Users...");
-
+            System.out.println("Все записи из таблица Users успешно удалено...");
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-
     }
 }
