@@ -1,7 +1,5 @@
 package peaksoft.service;
 
-import peaksoft.dao.UserDao;
-import peaksoft.dao.UserDaoHibernateImpl;
 import peaksoft.dao.UserDaoJdbcImpl;
 import peaksoft.model.User;
 
@@ -22,7 +20,7 @@ public class UserServiceImpl implements UserService {
 
     public void saveUser(String name, String lastName, byte age) throws SQLException {
         UserDaoJdbcImpl userDaoJdbc = new UserDaoJdbcImpl();
-        userDaoJdbc.saveUser(name,lastName,age);
+        userDaoJdbc.saveUser(name, lastName, age);
 
     }
 
@@ -34,7 +32,7 @@ public class UserServiceImpl implements UserService {
 
     public List<User> getAllUsers() throws SQLException {
         UserDaoJdbcImpl userDaoJdbc = new UserDaoJdbcImpl();
-        return   userDaoJdbc.getAllUsers();
+        return userDaoJdbc.getAllUsers();
 
     }
 

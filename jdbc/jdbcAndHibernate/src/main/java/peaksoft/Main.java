@@ -1,9 +1,7 @@
 package peaksoft;
 
-import peaksoft.model.User;
 import peaksoft.service.UserServiceHiberImpl;
-import peaksoft.service.UserServiceImpl;
-import peaksoft.util.HibernateUtil;
+import peaksoft.util.Util;
 
 import java.sql.SQLException;
 
@@ -38,7 +36,7 @@ public class Main {
         userServiceHiber.dropUsersTable();
 
 
-        HibernateUtil.shutDown();
+        Util.shutDown();
     }
 
 }

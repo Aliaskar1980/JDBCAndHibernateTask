@@ -1,13 +1,12 @@
 package peaksoft.service;
 
 import peaksoft.dao.UserDaoHibernateImpl;
-import peaksoft.dao.UserDaoJdbcImpl;
 import peaksoft.model.User;
 
 import java.sql.SQLException;
 import java.util.List;
 
-public class UserServiceHiberImpl implements UserService{
+public class UserServiceHiberImpl implements UserService {
     @Override
     public void createUsersTable() throws SQLException {
         UserDaoHibernateImpl userDaoHibernate = new UserDaoHibernateImpl();
@@ -23,7 +22,7 @@ public class UserServiceHiberImpl implements UserService{
     @Override
     public void saveUser(String name, String lastName, byte age) throws SQLException {
         UserDaoHibernateImpl userDaoHibernate = new UserDaoHibernateImpl();
-        userDaoHibernate.saveUser(name,lastName,age);
+        userDaoHibernate.saveUser(name, lastName, age);
     }
 
     @Override

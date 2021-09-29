@@ -1,9 +1,11 @@
 package peaksoft.dao;
 
 import peaksoft.model.User;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+
 import static peaksoft.util.Util.connect;
 
 public class UserDaoJdbcImpl implements UserDao {
@@ -83,7 +85,7 @@ public class UserDaoJdbcImpl implements UserDao {
                 String lastName = resultSet.getString(3);
                 byte age = resultSet.getByte(4);
                 users.add(new User(name, lastName, age));
-                System.out.println(id+" "+  name+" "+ lastName+" "+ age );
+                System.out.println(id + " " + name + " " + lastName + " " + age);
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
