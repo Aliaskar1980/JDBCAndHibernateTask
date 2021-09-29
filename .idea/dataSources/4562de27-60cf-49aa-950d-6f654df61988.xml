@@ -812,9 +812,10 @@ false Zulu
 13158||-9223372036854775808|U|G
 13158||10|U|G</Grants>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>1676</IntrospectionStateNumber>
+      <IntrospectionStateNumber>1732</IntrospectionStateNumber>
       <Current>1</Current>
       <Relations>sequence|table|25935|25937|1
+sequence|table|26096|26098|1
 </Relations>
     </database>
     <database id="4" parent="1" name="spring_web_blog">
@@ -887,7 +888,7 @@ false Zulu
       <Comment>standard public schema</Comment>
       <StateNumber>287</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>1677</IntrospectionStateNumber>
+      <IntrospectionStateNumber>1733</IntrospectionStateNumber>
       <Current>1</Current>
     </schema>
     <extension id="20" parent="3" name="adminpack">
@@ -1001,12 +1002,23 @@ false Zulu
       <StateNumber>1647</StateNumber>
       <DataType>integer|0s</DataType>
     </sequence>
-    <table id="34" parent="19" name="employees">
+    <sequence id="34" parent="19" name="users_id_seq">
+      <ObjectId>26096</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>1727</StateNumber>
+      <DataType>integer|0s</DataType>
+    </sequence>
+    <table id="35" parent="19" name="employees">
       <ObjectId>25937</ObjectId>
       <Owner>postgres</Owner>
       <StateNumber>1647</StateNumber>
     </table>
-    <column id="35" parent="34" name="id">
+    <table id="36" parent="19" name="users">
+      <ObjectId>26098</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>1729</StateNumber>
+    </table>
+    <column id="37" parent="35" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
@@ -1014,19 +1026,19 @@ false Zulu
       <DefaultExpression>nextval(&apos;employees_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>23</TypeId>
     </column>
-    <column id="36" parent="34" name="age">
+    <column id="38" parent="35" name="age">
       <Position>2</Position>
       <DataType>integer|0s</DataType>
       <StateNumber>1647</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="37" parent="34" name="name">
+    <column id="39" parent="35" name="name">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
       <StateNumber>1647</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="38" parent="34" name="employees_pkey">
+    <index id="40" parent="35" name="employees_pkey">
       <ObjectId>25941</ObjectId>
       <StateNumber>1647</StateNumber>
       <ColNames>id</ColNames>
@@ -1036,12 +1048,55 @@ false Zulu
       <CollationIds>0</CollationIds>
       <ClassIds>1978</ClassIds>
     </index>
-    <key id="39" parent="34" name="employees_pkey">
+    <key id="41" parent="35" name="employees_pkey">
       <ObjectId>25942</ObjectId>
       <StateNumber>1647</StateNumber>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>employees_pkey</UnderlyingIndexName>
+    </key>
+    <column id="42" parent="36" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1727</StateNumber>
+      <DefaultExpression>nextval(&apos;users_id_seq&apos;::regclass)</DefaultExpression>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="43" parent="36" name="name">
+      <Position>2</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <StateNumber>1727</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="44" parent="36" name="lastname">
+      <Position>3</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <StateNumber>1727</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="45" parent="36" name="age">
+      <Position>4</Position>
+      <DataType>integer|0s</DataType>
+      <StateNumber>1727</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <index id="46" parent="36" name="users_pkey">
+      <ObjectId>26105</ObjectId>
+      <StateNumber>1729</StateNumber>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+      <Primary>1</Primary>
+      <AccessMethodId>403</AccessMethodId>
+      <CollationIds>0</CollationIds>
+      <ClassIds>1978</ClassIds>
+    </index>
+    <key id="47" parent="36" name="users_pkey">
+      <ObjectId>26106</ObjectId>
+      <StateNumber>1727</StateNumber>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>users_pkey</UnderlyingIndexName>
     </key>
   </database-model>
 </dataSource>
